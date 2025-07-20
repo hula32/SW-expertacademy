@@ -1,4 +1,4 @@
-'''
+
 # 6001 : [기초-출력] 출력하기01
 print("Hello")
 
@@ -94,8 +94,124 @@ print(s[0:2], s[2:4], s[4:6])
 # 6023 : [기초-입출력] 시분초 입력받아 분만 출력하기
 h, m, s = input().split(':')
 print(m)
-'''
+
 # 6024 : [기초-입출력] 단어 2개 입력받아 이어 붙이기
 w1, w2 = input().split()
 s = w1 + w2
 print(s)
+
+# 6025 : [기초-값변환] 정수 2개 입력받아 합 계산하기
+a, b = input().split()
+c = int(a) + int(b)
+print(c)
+
+# [기초-값변환] 실수 2개 입력받아 합 계산하기
+a = float(input())
+b = float(input())
+print(a + b)
+
+# 6027 : [기초-출력변환] 10진 정수 입력받아 16진수로 출력하기
+n = int(input())
+print('%x' %n)
+
+# 6028 : [기초-출력변환] 10진 정수 입력받아 16진수로 출력하기
+n = int(input())
+nums = str('%x' % n)
+print(nums.upper())
+
+# 6029 : [기초-값변환] 16진 정수 입력받아 8진수로 출력하기
+n = int(input(), 16)
+print('%o' % n)
+
+# 6030 : [기초-값변환] 영문자 1개 입력받아 10진수로 변환하기
+n = ord(input())
+print(n)
+
+# 6031 : [기초-값변환] 정수 입력받아 유니코드 문자로 변환하기
+c = int(input())
+print(chr(c))
+
+# 6032 : [기초-산술연산] 정수 1개 입력받아 부호 바꾸기
+n = int(input())
+print(-n)
+
+# 6033 : [기초-산술연산] 문자 1개 입력받아 다음 문자 출력하기
+n = ord(input())
+print(chr(n + 1))
+
+# 6034 : [기초-산술연산] 정수 2개 입력받아 차 계산하기
+a, b = map(int,input().split())
+print(a - b)
+
+# 6035 : [기초-산술연산] 실수 2개 입력받아 곱 계산하기
+a, b = map(float,input().split())
+print(a * b)
+
+# 6036 : [기초-산술연산] 단어 여러 번 출력하기
+w, n = input().split()
+print(w * int(n))
+
+# 6037 : [기초-산술연산] 문장 여러 번 출력하기
+n = int(input())
+s = input()
+print(s * n)
+
+# 6038 : [기초-산술연산] 정수 2개 입력받아 거듭제곱 계산하기
+a, b = map(int, input().split())
+print(a ** b)
+
+# 6039 : [기초-산술연산] 실수 2개 입력받아 거듭제곱 계산하기
+a, b = map(float, input().split())
+print(a ** b)
+
+# 6040 : [기초-산술연산] 정수 2개 입력받아 나눈 몫 계산하기
+a, b = map(int, input().split())
+print(a // b)
+
+# 6041 : [기초-산술연산] 정수 2개 입력받아 나눈 나머지 계산하기
+a, b = map(int, input().split())
+print(a % b)
+
+# 6042 : [기초-값변환] 실수 1개 입력받아 소숫점이하 자리 변환하기
+a = float(input())
+print(f'{a:0.2f}')
+
+# 6043 : [기초-산술연산] 실수 2개 입력받아 나눈 결과 계산하기
+a, b = map(float,input().split())
+c = a / b
+print(f'{c:.3f}')
+
+# 6044 : [기초-산술연산] 정수 2개 입력받아 자동 계산하기
+a, b = map(int,input().split())
+print(a + b)
+print(a - b)
+print(a * b)
+print(a // b)
+print(a % b)
+print(f'{a / b:.2f}')
+
+# 6045 : [기초-산술연산] 정수 3개 입력받아 합과 평균 출력하기
+a, b, c = map(int,input().split())
+d = a + b + c
+e = f'{(a + b + c)/3:.2f}'
+print(d, e)
+
+# 6046 : [기초-비트시프트연산] 정수 1개 입력받아 2배 곱해 출력하기
+a = int(input())
+print(a << 1)
+
+# 6047 : [기초-비트시프트연산] 2의 거듭제곱 배로 곱해 출력하기
+a, b = map(int,input().split())
+print(a << b)
+
+# 6048 : [기초-비교연산] 정수 2개 입력받아 비교하기
+a, b = map(int,input().split())
+print(a < b)
+
+# 6049 : [기초-비교연산] 정수 2개 입력받아 비교하기
+a, b = map(int,input().split())
+print(a == b)
+
+# 6050 : [기초-비교연산] 정수 2개 입력받아 비교하기
+a, b = map(int,input().split())
+print(a <= b)
