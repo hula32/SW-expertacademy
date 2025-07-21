@@ -281,7 +281,7 @@ print(f'{PCM:0.1f} MB')
 w, h, b = map(int,input().split())
 bmp = ((w * h * b)/8/1024/1024)
 print(f'{bmp:0.2f} MB')
-'''
+
 # 6086 : [기초-종합] 거기까지! 이제 그만
 n = int(input())
 result = 0
@@ -293,12 +293,24 @@ while result < n:
 
 print(result)
 
+# 6087 : [기초-종합] 3의 배수는 통과
+n = int(input())
 
+for i in range(1, n + 1):
+    if i % 3 == 0:
+        continue
+    print(i, end=' ')
 
+# 6088 : [기초-종합] 수 나열하기
+a, d, n = map(int, input().split())
 
+arithnetic = a + (n - 1) * d # 등차수열
 
+print(arithnetic)
+'''
+# 6089 : [기초-종합] 수 나열하기
+a, r, n = map(int, input().split())
 
+geometric = a * (r ** (n - 1))
 
-
-
-
+print(geometric)
