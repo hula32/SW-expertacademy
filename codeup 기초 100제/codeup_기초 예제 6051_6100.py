@@ -190,13 +190,115 @@ while s <= n :
         s += 1    
 
 print(result)
-'''
-# 6078 : [기초-종합] 원하는 문자가 입력될 때까지 반복 출력하기(for문)
-a = input()
 
-for i in a != 'q' :
-    print(i)
+
+# 6078 : [기초-종합] 원하는 문자가 입력될 때까지 반복 출력하기(while문)
+a = ('a')
+
+while a != 'q' :
+    a = input()
+    print(a)
     if a == 'q' :
-        print(a)
         break
+
+# 6079 : [기초-종합] 언제까지 더해야 할까?(while) -> 다시 풀기
+n = int(input()) # 숫자 하나를 입력 받음
+total = 0
+i = 0
+
+while total < n : 
+    i += 1
+    total += i
+
+print(i)
+
+
+# 6080 : [기초-종합] 주사위 2개 던지기
+n, m = map(int,input().split()) # n, m의 주사위 숫자
+
+for i in range(1, n + 1): # i = 1 ~ n + 1
+    for j in range(1, m + 1) : # i = 1 ~ m + 1
+        print(i, j)
+
+# 6081 : [기초-종합] 16진수 구구단 출력하기 -> 다시 풀기
+str_n = input()
+n = int(str_n, 16)
+
+for i in range(1, 16):
+    print('%X'%n, '*%X'%i,'=%X'%(n*i), sep = '')
+
+# 6081 : [기초-종합] 16진수 구구단 출력하기 > format -> 다시 풀기
+str_n = input()
+n = int(str_n, 16)
+
+for i in range(1, 16):
+    total = n * format(i, 'X')
+    print(n, format(i, 'X'), '=', format(total)) 
+
+# 6082 : [기초-종합] 3 6 9 게임의 왕이 되자
+n = int(input())
+
+for i in range(1, n + 1):
+    if i % 10 == 3 : # 만약 i의 나머지가 3일 경우 출력
+        print('X', end = ' ') # 3일 경우 X와 공백 출력
+    elif i % 10 == 6 :
+        print('X', end = ' ')
+    elif i % 10 == 9 :
+        print('X', end = ' ')
+    else :
+        print(i, end = ' ')
+
+# 6083 : [기초-종합] 빛 섞어 색 만들기 -> 다시 풀기
+r, g, b = map(int,input().split())
+count = 0
+
+for i in range(0, r) : 
+    for j in range(0, g) :
+        for k in range(0, b) :
+            print(i, j, k)
+            count += 1
+
+print(count)
+
+
+# 6084 : [기초-종합] 소리 파일 저장용량 계산하기 -> 다시 풀기
+h, b, c, s = map(int, input().split())
+
+if b == 2 :
+    b
+elif b == 16 :
+    b
+if c == 1:
+    c
+elif c == 2:
+    c
+
+PCM = ((h * b * c * s)/8/1024/1024)
+
+print(f'{PCM:0.1f} MB')
+
+# 6085 : [기초-종합] 그림 파일 저장용량 계산하기
+w, h, b = map(int,input().split())
+bmp = ((w * h * b)/8/1024/1024)
+print(f'{bmp:0.2f} MB')
+'''
+# 6086 : [기초-종합] 거기까지! 이제 그만
+n = int(input())
+result = 0
+i = 0
+
+while result < n:
+    i += 1
+    result += i
+
+print(result)
+
+
+
+
+
+
+
+
+
 
