@@ -345,14 +345,17 @@ for _ in range(n - 1) :
     a = a + d
 
 print(a)
-'''
+
 # 6091 : [기초-종합] 함께 문제 푸는 날 -> 다시 풀기
 a, b, c = map(int,input().split())
 d = 1
 
-while d % a != 0 or d % b != 0 or d % c != 0 : 
+while d % a != 0 or d % b != 0 or d % c != 0 : # 모두 d를 나누고, 나머지가 0일 때 False
     d = d + 1
 
 print(d)
+'''
+# 6092 : [기초-리스트] 이상한 출석 번호 부르기
+
 
 
