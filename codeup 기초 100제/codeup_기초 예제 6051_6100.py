@@ -308,54 +308,14 @@ arithnetic = a + (n - 1) * d # 등차수열
 
 print(arithnetic)
 
-# 6088 : [기초-종합] 수 나열하기 - for문
-a, d, n = map(int, input().split())
-
-if n == 1:
-    print(n)
-for _ in range(n - 1):
-    a = a + d
-
-print(a)
-
 # 6089 : [기초-종합] 수 나열하기
 a, r, n = map(int, input().split())
 
 geometric = a * (r ** (n - 1)) # 등비수열
 
 print(geometric)
-
-# 6089 : [기초-종합] 수 나열하기 - for문
-a, r, n = map(int, input().split())
-
-if n == 1:
-    print(n)
-for _ in range(n - 1):
-    a = a * r
-
-print(a)
-
-# 6090 : [기초-종합] 수 나열하기 -> 다시 풀기
-a, m, d, n = map(int,input().split())
-
-if n == 1:
-    print(n)
-for _ in range(n - 1) :
-    a = a * m
-    a = a + d
-
-print(a)
-
-# 6091 : [기초-종합] 함께 문제 푸는 날 -> 다시 풀기
-a, b, c = map(int,input().split())
-d = 1
-
-while d % a != 0 or d % b != 0 or d % c != 0 : # 모두 d를 나누고, 나머지가 0일 때 False
-    d = d + 1
-
-print(d)
 '''
-# 6092 : [기초-리스트] 이상한 출석 번호 부르기
+# 6090 : [기초-종합] 수 나열하기
+a, m, d, n = map(int, input().split())
 
-
-
+result = a * m + d
