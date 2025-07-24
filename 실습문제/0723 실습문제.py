@@ -254,13 +254,20 @@ print(result)
 
 # 대규모 도서 대여 서비스
 
-number_of_people = 0
+number_of_people = 0 # 유저 수
+number_of_book = 100 # 책의 수
 
-# 인원
+# 유저 수 증가
 def increase_user():
-    global number_of_people
-    number_of_people += 1
+    global number_of_people # 글로벌 함수 유저 수
+    number_of_people += 1 # 유저 수 1 증가
 
+
+# 대여하는 책의 수 줄이기
+def decrease_book(count):
+    global number_of_book # 글로벌 책의 수
+    number_of_book -= count # 책의 수 대여 책의 수만큼 감소
+    print('남은 책의 수 :', number_of_book) # 남은 책의 수 값 호출
 
 # 유저 정보 리스트
 name = ['김시습', '허균', '남영로', '임제', '박지원']
@@ -268,8 +275,12 @@ age = [20, 16, 52, 36, 60]
 address = ['서울', '강릉', '조선', '나주', '한성부']
 
 
-# 값들을 하나의 딕셔너리에 저장
-def create_user(name, age, address):
+# 유저별 정보 묶기
+user_data = zip(name, age, address)
+
+
+# 유저 생성
+def create_user(name, age, address): 
     increase_user()
 
     user_info = {'name' : name,
@@ -277,36 +288,19 @@ def create_user(name, age, address):
                  'address' : address}  
 
     print(f'{name}님 환영합니다!')
-    # print(user_info) 
     return user_info # 딕셔너리 변환
-
-
-# 유저별 정보 묶기
-user_data = zip(name, age, address)
-
 
 # map으로 create_user 함수 적용
 many_user = list(map(lambda user : create_user(*user), user_data))
 
 
-
-#대여자의 이름과 대여하는 책의 수
-def rental_book(name, rental):
-    decrease_book(rental)
-    print(f'{name}님이 {rental}권의 책을 대여하였습니다')
-
-number_of_book = 100
-
-# 대여하는 책의 수
-def decrease_book(count):
-    global number_of_book
-    global age
-    rental = age // 10
-    number_of_book -= count
-    print('남은 책의 수 :', number_of_book)
+# 책 대여
+def rental_book(info): # 이름과 책 대여수
+    decrease_book(info['age']) # decrease_book에서 책 대여 갯수 가져오기
+    print(f'{info["name"]}님이 {info["age"]}권의 책을 대여하였습니다') # 호출
 
 
+# 사용자별 책 대여(나이 기준: 나이 // 10권 대여)
+list(map(rental_book,map(lambda x: {'name': x['name'], 'age': x['age'] // 10}, many_user)))
 
-
-print()
 

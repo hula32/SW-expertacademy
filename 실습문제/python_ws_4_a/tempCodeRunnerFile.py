@@ -1,0 +1,1 @@
+result = create_url(NAME, MAIN_URL)
