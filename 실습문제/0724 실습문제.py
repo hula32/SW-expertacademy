@@ -197,7 +197,7 @@ for i in range(1, 11) :
     # JSON -> dict 데이터 변환
     parsed_data = response.json() # 응답 중에서 데이터 본문 부분만 json 형식으로 가져옴
     # json(자바스크립트) : python의 dict와 같은 형식
-    print(parsed_data)
+    # print(parsed_data)
     """
 응답 본문
 parsed_data = {'address': {'city': 'Gwenborough',
@@ -220,9 +220,9 @@ parsed_data = {'address': {'city': 'Gwenborough',
     # print(parsed_data['address']['geo']['lat'])
     # lat, lng 정보 호출 및 실수형을 변경
     lat = float(parsed_data['address']['geo']['lat'])
-    print(lat)
+    # print(lat)
     lng = float(parsed_data['address']['geo']['lng'])
-    print(lng)
+    # print(lng)
 
     """
     응답 결과
@@ -234,9 +234,9 @@ parsed_data = {'address': {'city': 'Gwenborough',
 
     # company name, name를 호출
     company_name = parsed_data['company']['name']
-    print(company_name)
+    # print(company_name)
     name = parsed_data['name']
-    print(name)
+    # print(name)
     """
     응답 결과
 
@@ -246,11 +246,21 @@ parsed_data = {'address': {'city': 'Gwenborough',
     """
 
     # dummy_data리스트에 dict로 구성해서 삽입하기
-    dummy_data = [{company_name, lat, lng, name}]
+    # lat(위도)과 lng(경도)의 조건문
+    if -80 < lat < 80 and -80 < lng < 80:
+        dic = {
+            'company' : company_name,
+            'lat' : lat,
+            'lng' : lng,
+            'name' : name}
+        
+        dummy_data.append(dic)
+
+print(dummy_data)
 
 
 
-    break # 반복하지 말고 1개만 테스트해보기.
+ # 반복하지 말고 1개만 테스트해보기.
 
     # lat, lng 숫자로 변환
     # lat : float(parsed_data['address']['geo']['lat'])
@@ -267,7 +277,7 @@ parsed_data = {'address': {'city': 'Gwenborough',
     
 
 
-print(dummy_data)
+# print(dummy_data)
     
 '''
 ## 대여 불가 도서 관리하기
