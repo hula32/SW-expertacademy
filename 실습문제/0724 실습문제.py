@@ -407,6 +407,7 @@ def create_user(dummy_data):
     for data in dummy_data:
         if censorship(data):
             if censored_user_list.get(data['company']): # 만약에 해당 회사이름의 리스트가 있다면
+                print(censored_user_list.get(data['company']))
                 censored_user_list.get(data['company']).append(data['name']) # 그 리스트에 데이터 추가
             else: # 해당 회사 이름의 리스트가 딕셔너리에 없다면.
                 censored_user_list[data['company']] = [data['name']] # 그 회사 이름으로 리스트 만들어서 넣기
@@ -750,7 +751,7 @@ def is_validation(data):
     if '@' not in data['mail']:
         check = False
         check_list.append('mail')
-    if 2 > len(data['name']) or 31 < len(data['name']):
+    if 2 > len(data['name']) or 30 < len(data['name']):
         check = False
         check_list.append('name')
     if len(data['website']) <= 0:
