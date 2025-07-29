@@ -8,6 +8,20 @@
 # 입력받기 위한 input 함수는 절대 사용하지 않습니다.
 def repeat_and_join(counts, char_to_repeat):
     # 여기에 코드를 작성하여 함수를 완성합니다.
+    if not counts:
+        return char_to_repeat
+    
+    char = []
+
+    
+    for count in counts:
+        if isinstance(count, int) and count > 0:
+            repeat_str = char_to_repeat * count
+            char.append(repeat_str)
+    
+    return "".join(char)
+
+
 
 
 # 추가 테스트를 위한 코드 작성 가능
