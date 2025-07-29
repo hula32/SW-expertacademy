@@ -11,11 +11,13 @@ def calculate_sum(numbers):
     if not numbers:
         return 0
     
-    total = 0.0
+    total = 0
+
     for num in numbers:
-        total = total + num
+        total += num
     
     return total
+        
 
 
 # 추가 테스트를 위한 코드 작성 가능
@@ -27,3 +29,12 @@ def calculate_sum(numbers):
 print(calculate_sum([1, 2, 3, 4, 5])) # 15
 print(calculate_sum([10.5, 20.5, 30])) # 61.0
 print(calculate_sum([])) # 0
+
+# if not numbers:
+#         return 0
+    
+#     total = 0.0
+#     for num in numbers:
+#         total = total + num
+    
+#     return total

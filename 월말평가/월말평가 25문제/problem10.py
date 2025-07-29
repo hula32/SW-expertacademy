@@ -10,18 +10,16 @@ def repeat_and_join(counts, char_to_repeat):
     # 여기에 코드를 작성하여 함수를 완성합니다.
     if not counts:
         return char_to_repeat
-    
-    char = []
-
+   
+    new_char = []
     
     for count in counts:
         if isinstance(count, int) and count > 0:
-            repeat_str = char_to_repeat * count
-            char.append(repeat_str)
-    
-    return "".join(char)
+            char = char_to_repeat * count
+            new_char.append(char)
 
-
+            
+    return ''.join(new_char)
 
 
 # 추가 테스트를 위한 코드 작성 가능
@@ -34,3 +32,17 @@ print(repeat_and_join([2, 5, 1, 3], "*")) # **********
 print(repeat_and_join([1, 0, 2], "A")) # AAA
 print(repeat_and_join([], "#")) #
 print(repeat_and_join([3, -1, 2, 'a'], "@")) # @@@@@
+
+# if not counts:
+#         return char_to_repeat
+    
+#     char = []
+
+    
+#     for count in counts:
+#         if isinstance(count, int) and count > 0:
+#             repeat_str = char_to_repeat * count
+#             char.append(repeat_str)
+    
+#     return "".join(char)
+

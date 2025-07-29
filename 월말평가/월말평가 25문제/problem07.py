@@ -11,13 +11,14 @@ def find_max_score(scores):
     if not scores:
         return None
     
-    max_val = scores[0]
-    
-    for num in scores[1:]:
-        if num > max_val:
-            max_val = num
+    max_val = -9999
+
+    for score in scores:
+        if score > max_val:
+            max_val = score
 
     return max_val
+        
 
 # 추가 테스트를 위한 코드 작성 가능
 # 예) print(함수명(인자))
@@ -28,3 +29,14 @@ def find_max_score(scores):
 print(find_max_score([30, 60, 90, 70])) # 90
 print(find_max_score([5, 1, 9, 3, 7])) # 9
 print(find_max_score([100, 100])) # 100
+
+# if not scores:
+#         return None
+    
+#     max_val = scores[0]
+    
+#     for num in scores[1:]:
+#         if num > max_val:
+#             max_val = num
+
+#     return max_val

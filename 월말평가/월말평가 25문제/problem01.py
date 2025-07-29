@@ -12,14 +12,14 @@ def min_score(scores):
     if not scores:
         return None
     
-    min_val = 100
+    min_val = 99999
 
     for score in scores:
         if score < min_val:
             min_val = score
-        # else:
-        #     pass
+
     return min_val
+    
 
 
 # 추가 테스트를 위한 코드 작성 가능

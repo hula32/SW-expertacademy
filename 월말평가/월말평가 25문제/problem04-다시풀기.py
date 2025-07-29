@@ -9,14 +9,19 @@
 # 입력받기 위한 input 함수는 절대 사용하지 않습니다.
 def is_id_valid(user_data):
     # 여기에 코드를 작성하여 함수를 완성합니다.
-    user_id = user_data.get('id', '')
-    if not user_id:
+    if not user_data['id'] or not user_data['password']:
         return False
     
-    if user_id[-1].isdigit():
+    user_id = user_data['id'][-1]
+    
+    if user_id.isdigit():
         return True
     else:
         return False
+
+    
+
+    
     
 # 추가 테스트를 위한 코드 작성 가능
 # 예) print(함수명(인자))
@@ -53,3 +58,14 @@ user_data5 = {
     'password': 'abc',
 }
 print(is_id_valid(user_data5)) # False
+
+
+
+# user_id = user_data.get('id', '')
+#     if not user_id:
+#         return False
+    
+#     if user_id[-1].isdigit():
+#         return True
+#     else:
+#         return False

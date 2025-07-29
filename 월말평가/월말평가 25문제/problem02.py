@@ -8,12 +8,15 @@
 def under_60(scores):
     
     # 여기에 코드를 작성하여 함수를 완성합니다.
+    if not scores:
+        return None
+    
     count = 0
 
     for score in scores:
         if score < 60:
-            count = count + 1
-    
+            count += 1
+            
     return count
 
 

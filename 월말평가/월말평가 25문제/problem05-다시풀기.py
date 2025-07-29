@@ -9,13 +9,17 @@ def average_value(numbers):
     # 여기에 코드를 작성하여 함수를 완성합니다.
     if not numbers:
         return 0.0
-    total = 0.0
+
+    result = 0.0
     count = 0
+
     for num in numbers:
-        total = total + num
-        count = count + 1
-            
-    return total / count
+        result += num
+        count += 1
+
+    return result / count
+
+   
     
 
 
@@ -28,3 +32,14 @@ def average_value(numbers):
 print(average_value([10, 20, 30])) # 20.0
 print(average_value([1, 2, 3, 4, 5])) # 3.0
 print(average_value([])) # 0.0
+
+
+#  if not numbers:
+#         return 0.0
+#     total = 0.0
+#     count = 0
+#     for num in numbers:
+#         total = total + num
+#         count = count + 1
+            
+#     return total / count

@@ -9,14 +9,15 @@
 # 입력받기 위한 input 함수는 절대 사용하지 않습니다.
 def is_user_data_valid(user_data):
     # 여기에 코드를 작성하여 함수를 완성합니다.
-    user_id = user_data.get('id', '')
-    user_password = user_data.get('password', '')
-    
-    if not user_id or not user_password:
+
+    if not user_data['id'] or not user_data['password']:
         return False
     else:
         return True
+    
+    
 
+   
 
 
 
@@ -50,3 +51,13 @@ user_data4 = {
     'password': '',
 }
 print(is_user_data_valid(user_data4)) # False
+
+
+
+#  user_id = user_data.get('id', '')
+#     user_password = user_data.get('password', '')
+    
+#     if not user_id or not user_password:
+#         return False
+#     else:
+#         return True

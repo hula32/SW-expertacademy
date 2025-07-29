@@ -7,17 +7,23 @@
 # 입력받기 위한 input 함수는 절대 사용하지 않습니다.
 def caesar_cipher(text, shift):
     # 여기에 코드를 작성하여 함수를 완성합니다.
-    result = []
-    for word in text:
-        if 'a' <= word <= 'z':
-            new_word = (ord(word) - ord('a') + shift) % 26 + ord('a')
-            result.append(chr(new_word))
-        elif 'A' <= word <= 'Z':
-            new_word = (ord(word) - ord('A') + shift) % 26 + ord('A')
-            result.append(chr(new_word))
+    if not text and not shift:
+        return None
+    
+    word = []
+
+    for t in text:
+        if 'a' <= t <= 'z':
+            new_text = (ord(t) - ord('a') + shift) % 26 + ord('a')
+            word.append(chr(new_text))
+        elif 'A' <= t <= 'Z':
+            new_text = (ord(t) - ord('A') + shift) % 26 + ord('A')
+            word.append(chr(new_text))
         else:
-            result.append(word)
-    return ''.join(result)
+            word.append(t)
+
+    return "".join(word)
+    
 
 
 # 추가 테스트를 위한 코드 작성 가능
@@ -29,3 +35,16 @@ def caesar_cipher(text, shift):
 print(caesar_cipher("hello", 3)) # khoor
 print(caesar_cipher("Python123!", 5)) # Udymts123!
 print(caesar_cipher("ABC", 1)) # BCD
+
+
+# result = []
+#     for word in text:
+#         if 'a' <= word <= 'z':
+#             new_word = (ord(word) - ord('a') + shift) % 26 + ord('a')
+#             result.append(chr(new_word))
+#         elif 'A' <= word <= 'Z':
+#             new_word = (ord(word) - ord('A') + shift) % 26 + ord('A')
+#             result.append(chr(new_word))
+#         else:
+#             result.append(word)
+#     return ''.join(result)
