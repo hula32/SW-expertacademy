@@ -1,6 +1,6 @@
 # 아래 함수를 수정하시오.
-def union_sets():
-    return set | set2
+def union_sets(set1, set2):
+    return set1 | set2
     # return set1.union(set2)
     # result = set()
     # result = update(set1)
@@ -9,7 +9,7 @@ def union_multiple_sets(*sets):
     # Tuple에 포함된 요소들의 개수 => len(sets)
     if len(sets) < 2:
         print("최소 두개의 셋이 필요합니다")
-        return 
+        return set()
     else:
         # 가변인자 sets의 자료형은 tuple이다.
         # tuple은 iterable이다.

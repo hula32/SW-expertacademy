@@ -28,7 +28,13 @@ key_list = ['name', 'company', 'is_collapsible']
 
 # 아래에 코드를 작성하시오.
 
-for k in key_list:
-    for d in data:
-        if data.
-            print()
+
+for d in data:
+    for k in key_list:
+        if k not in d:
+            d[k] = 'unkwnow'
+
+for d in data:
+    for k, v in d.items():
+        print(f'{k}은/는 {v}입니다.')
+
