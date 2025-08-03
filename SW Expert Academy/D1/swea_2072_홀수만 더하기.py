@@ -14,3 +14,8 @@ for t in range(test):
 # 리스트에 저장된 값만큼 인덱스를 이용하여 결과값 도출
 for t in range(test):
     print(f'#{t+1}',result[t])
+    
+
+# T = int(input())
+# for t in range(1, T+1):
+# print(f'#{t+1}',result[t])

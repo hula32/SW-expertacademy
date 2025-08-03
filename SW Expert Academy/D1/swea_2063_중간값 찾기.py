@@ -11,7 +11,7 @@ if len(n_case) != n:
 else :
     score = sorted(n_case)
 
-# 중간값 도출하기
+ # 중간값 도출하기
     mid_val = round(len(score) / 2)
 
     result = score[mid_val - 1] 
