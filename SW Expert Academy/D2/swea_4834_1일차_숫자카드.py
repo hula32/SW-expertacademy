@@ -7,7 +7,4 @@ for t in range(1, T+1):
     for n, c in number, N:
         count = 0
 
-        if 
-
         
-
