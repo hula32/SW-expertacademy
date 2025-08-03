@@ -14,7 +14,7 @@ for t in range(1, T + 1):
         result += str(bit) 
         number -= bit # 정수를 제외한 부분만 다음 루프에 넘김
         count += 1
-
+        # 소수점 자리가 13자리가 넘으면 호출
         if count > 13:
             result = 'overflow'
             break

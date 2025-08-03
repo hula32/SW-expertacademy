@@ -4,26 +4,20 @@ T = int(input())
 for t in range(1, T+1):
     N, M = map(int,input().split())
     int_val = list(map(int,input().split()))
+
     min_val = 99999
     max_val = -99999
-    # result = []
-    # 입력값 정렬
+    
+    # int_val 리스트 끝까지 돌아가면서 M개씩 더해서 비교하기
     for a in range(N-M+1) :
+        # M개씩 더해서 최소값, 최대값 찾기
         num_sum = sum(int_val[a:a+M])
         if min_val > num_sum :
             min_val = num_sum
         if max_val < num_sum :
             max_val = num_sum
-    
-    # # 입력값 중 M개만큼 최소값끼리 더하기
-    # min_val = sum(int_val[:M])
-    # print(min_val)
-    # # 입력값 중 M개만큼 최대값끼리 더하기
-    # max_val = sum(int_val[-M:])
-    # print(max_val)
-    # # 최대값 - 최소값
+    # 최대값 - 최소값
     result = max_val - min_val
-    #result.append(max_val - min_val)
 
     print(f'#{t}', result)
         
