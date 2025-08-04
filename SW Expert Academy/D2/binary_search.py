@@ -15,3 +15,13 @@ while l < r:
         l = c
     else:
         r = c
+
+
+while l < r:
+    c = int(l+r)/2
+    cnt +=1
+
+    if c == A:
+        break
+    if c < A:
+        l = c
