@@ -1,4 +1,4 @@
-
+# 이진탐색 함수 만들기
 def get_binary_search_cnt(l, r, target_num):
 
     cnt = 0
