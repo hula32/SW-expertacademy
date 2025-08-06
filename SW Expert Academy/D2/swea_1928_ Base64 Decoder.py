@@ -6,9 +6,10 @@ for t in range(1, T+1):
     ['T', 'G', 'l', 'm', 'Z', 'S', 'B', 'p', 'd',
     'H', 'N', 'l', 'b', 'G', 'Y', 'g', 'a', 'X',
     'M', 'g', 'Y', 'S', 'B', 'x', 'd', 'W', '9', '0',
-    'Y', 'X', 'R', 'p', 'b', '2', '4', 'u'] 
+    'Y', 'X', 'R', 'p', 'b', '2', '4', 'u' - 36] 
 
     '''
+    print(len(N))
 
     arr = [0] * 64
 
@@ -31,7 +32,7 @@ for t in range(1, T+1):
     for n in N:
         for idx, chr in enumerate(arr):
             if chr == n:
-                a = format(idx, '06b')
+                a = format(idx, '08b')
                 number_list.append(a)
 
     '''
@@ -58,47 +59,32 @@ for t in range(1, T+1):
     100000011100010111010101101111011101000110000
     10111010001101001011011110110111000101110
     '''
-    or_list = int(and_list)
 
     result = []
 
-    for i in or_list(0, lens, 8):
-        result.append(or_list[i:i+8])
-    
-    print(result)
+    for i in range(0,len(N)*6,8):
+        result.append(and_list[i:i+8])
 
-    # cnt = 7
-    # total = 0
-    # for i in or_list:
-    #     z = int(i)
-    #     if cnt == 0 :
-    #         cnt = 7
-    #         total += z
-    #         result.append(total)
-    #         total = 0
-    #     else :
-    #         total += (2**cnt) * z
-    #         cnt -= 1
-    #     print(total)
+    '''
+    ['01001100', '01101001', '01100110', '01100101', '00100000', 
+    '01101001', '01110100', '01110011', '01100101', '01101100', 
+    '01100110', '00100000', '01101001', '01110011', '00100000', 
+    '01100001', '00100000', '01110001', '01110101', '01101111', 
+    '01110100', '01100001', '01110100', '01101001', '01101111', 
+    '01101110', '00101110']
+    '''
 
-    # for y in 
-    # 1 2 3 4 5 6 7 8
-    # 0 0
-    # 1 1
-    # 2 10
-    # 3 11
-    # 4 100
-    # 5 101
-    # 6 110
-    # 7 111
-    # 8 1000
-    # 9 1001
+    w_list_t = list(map(int, result.split(',')))
+    # w_list = []
+
+    # for w in result:
+    #     w_list.append(chr(int(w)))
+
+    print(w_list_t)
 
 
-    
 
-
-    
+     
 
 # 1. 입력받은 값을 표를 기준으로 숫자로 변경
 # 2. 숫자로 변경한 값을 이진수로 변경
