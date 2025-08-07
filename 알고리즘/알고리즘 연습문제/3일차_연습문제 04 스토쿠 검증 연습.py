@@ -25,18 +25,19 @@ for t in range(1, T+1):
                 break
 
     # 3*3
-    dr = [0, 1, 0, -1] + [1, 1, -1, -1]
-    dc = [1, 0, -1, 0] + [1, -1, -1, 1]
+    dr = [-1, 1, 0, 0] + [-1, -1, 1, 1]
+    dc = [0, 0, -1, 1] + [-1, 1, -1, 1]
 
-    for r in range(2, 5, 8):
-        for c in range(2, 5, 8):
+    for r in [1, 4, 7]:
+        for c in [1, 4, 7]:
             result = set()
+            result.add(arr[r][c])
             for b in range(8):
                 nr, nc = r + dr[b], c + dc[b]
-                result.add(arr[r][c])
-                if 0 <= nr < 2 and 1 <= nc < 2:
-                    pass
+                if 0 <= nr < 9 and 0 <= nc < 9:
+                    result.add(arr[nr][nc])
             if len(result) != 9:
                 value = 0
-    
+                break
+            
     print(f'#{t} {value}')
