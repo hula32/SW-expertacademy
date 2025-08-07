@@ -4,39 +4,43 @@ for t in range(1, T+1):
     N, M = list(map(int, input().split()))
     arr = [list(map(int, input().split())) for _ in range(N)]
 
- 
+    max_val = 0
 
-    dr = [0, 1, 0, -1]
-    dc = [1, 0, -1, 0]
+    # 상하좌우
+    dr = [0, 0, -1, 1]
+    dc = [1, -1, 0, 0]
 
-    di = [1, 1, -1, -1]
-    dj = [1, -1, -1, 1]
+    # 대각선
+    di = [-1, -1, 1, 1]
+    dj = [-1, 1, -1, 1]
 
-    max_val = -1
-
+    
     for r in range(N):
         for c in range(N):
 
             cnt = arr[r][c]
             for d in range(4):
                 for m in range(1, M):
-                    nr = r + dr[d]*m 
-                    nc = c + dc[d]*m
+                    nr, nc = r+dr[d]*m, c+dc[d]*m
                     if 0 <= nr < N and 0 <= nc < N:
                         cnt += arr[nr][nc]
-            max_val = max(max_val, cnt)
 
+            if max_val < cnt:
+                max_val = cnt
 
+            
             cnt = arr[r][c]
             for d in range(4):
                 for m in range(1, M):
-                    nr = r + di[d]*m
-                    nc = c + dj[d]*m 
-                    if 0 <= nr < N and 0 <= nc < M:
+                    nr, nc = r+di[d]*m, c+dj[d]*m
+                    if 0 <= nr < N and 0 <= nc < N:
                         cnt += arr[nr][nc]
-            max_val = max(max_val, cnt)
+
+            if max_val < cnt:
+                max_val = cnt
+
+    print(f'#{t} {max_val}')
 
 
-print(f'#{t} {max_val}')
-
+            
     
