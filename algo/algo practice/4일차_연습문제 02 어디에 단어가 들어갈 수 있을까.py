@@ -11,14 +11,19 @@ for t in range(1, T+1):
         for c in range(N-K+1):
             is_ok = True
             for i in range(K):
-                if arr[r][c+i] != 1:
+                if arr[r][c+i] == 1:
+                    continue
+                else:
                     is_ok = False
-                    break
+            print(r, c)        
             if is_ok:
                 if (c + K < N and arr[r][c+K] == 1) or (c - 1 >= 0 and arr[r][c]):
                     continue
                 tri += 1
-
+            print(r,c)
+            print(tri)
+            print('====================================')
+    print(tri)
 
     for c in range(N):
         for r in range(N-K+1):
@@ -32,7 +37,7 @@ for t in range(1, T+1):
                     continue
                 tri += 1
 
-    print(f'{t} {tri}')
+    print(f'#{t} {tri}')
 
                 
 

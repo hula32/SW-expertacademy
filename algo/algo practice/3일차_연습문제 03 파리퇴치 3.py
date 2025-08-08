@@ -86,7 +86,7 @@ for tc in range(1, T+1):
         for c in range(N):
             # (r, c)가 결정됨
             # 이 (r, c)를 중심으로 상하좌우, 또는 대각선을 순회
-
+            print(r,c)
             ## 상하좌우로 보기
             cnt = arr[r][c] # 현재 중심점의 파리 갯수
             for d in range(4): # 델타배열 순회(방향 순회)
