@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # 오름차순 변경
 def bubble_sort(a, N):
     for i in range(N-1, 0, -1): # i : 4, 3, 2, 1
