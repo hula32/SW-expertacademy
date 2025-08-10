@@ -1,52 +1,40 @@
-# T = int(input())
+T = int(input())
 
-# for t in range(1, T+1):
-#     N, M = list(map(int, input().split()))
-#     arr = [list(map(int, input().split())) for _ in range(N)]
+for t in range(1, T+1):
+    N, M = list(map(int, input().split()))
+    arr = [list(map(int, input().split())) for _ in range(N)]
 
+    dr = [1, -1, 0, 0]
+    dc = [0, 0, -1, 1]
 
-n = 5
-m = 3
-arr = [[1, 3, 3, 6, 7], 
-        [8, 13, 9, 12, 8], 
-        [4, 16, 11, 12, 6], 
-        [2, 4, 1, 23, 2], 
-        [9, 13, 4, 7, 3]]
+    di = [1, 1, -1, -1]
+    dj = [-1, 1, -1, 1]
 
-# 상하좌우
-dr = [0, 0, -1, 1]
-dc = [1, -1, 0, 0]
+    max_val = -1
 
-# 대각선
-di = [1, 1, -1, -1]
-dj = [1, -1, -1, 1]
+    for r in range(N):
+        for c in range(N):
 
-max_val = 0
+            cnt = arr[r][c]
 
-for r in range(n):
-    for c in range(n):
+            for d in range(4):
+                for m in range(1, M):
+                    nr, nc = r + dr[d] * m, c + dc[d] * m
+                    if 0 <= nr < N and 0 <= nc < N:
+                        cnt += arr[nr][nc]
 
-        
+            if max_val < cnt:
+                max_val = cnt
 
-        i = arr[r][c] # 파리 고정값
-        for d in range(4):
-            for s in range(1, m):
-                nr, nc = r + dr[d]  , c + dc[d] 
-                if 0 <= nr < n and 0 <= nc < n:
-                    i += arr[nr][nc]
-                    print(f'{arr[nr][nc]}' , end = " ")
-        print()
-        if max_val < i:
-            max_val = i
+            cnt = arr[r][c]
 
-        i = arr[r][c]
-        for d in range(4):
-            for s in range(1, m):
-                nr, nc = r + di[d] * s, c + dj[d] * s
-                if 0 <= nr < n 
+            for d in range(4):
+                for m in range(1, M):
+                    nr, nc = r + di[d] * m, c + dj[d] * m
+                    if 0 <= nr < N and 0 <= nc < N:
+                        cnt += arr[nr][nc]
 
+            if max_val < cnt:
+                max_val = cnt
 
-
-
-
-    
+    print(f'#{t} {max_val}')
