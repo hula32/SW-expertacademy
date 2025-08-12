@@ -13,7 +13,7 @@ def make_pascal(N):
         if i >= 3:
             before_row = pascal[-1]
 
-            for j in range(len(row)):
+            for j in range(len(row)): # 0,1,2,3
                 if row[j] == 0:
                     row[j] = before_row[j] + before_row[j-1]
         pascal.append(row)
@@ -24,4 +24,6 @@ for t in range(1, T+1):
     N = int(input())
 
     print(f'#{t}')
-    print(make_pascal(N))
+    for p in make_pascal(N):
+        print(*p)
+    
