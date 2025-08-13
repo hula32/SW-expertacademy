@@ -7,7 +7,7 @@ for tc in range(1, 11):
 
     arr = [list(map(int, input().split())) for _ in range(100)]
 
-
+    # 기준점
     start_r, start_c = -1, -1
     for r in range(100):
         for c in range(100):

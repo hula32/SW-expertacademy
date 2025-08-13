@@ -1,2 +1,2 @@
-f arr[r][c] == 1:
-                c
+print(arr, end = '')
+                print(
