@@ -12,3 +12,41 @@ arr = [[1, 4, 0, 5, 4],
        [5, 1, 2, 0, 4], 
        [5, 2, 2, 1, 2]]
 
+mid = N//2
+
+step = 2
+
+for r in range(N):
+    print(arr[r][0+step:N-step])
+    if r < mid:
+        step -= 1
+    if r >= mid:
+        step += 1
+
+
+
+
+
+
+
+
+
+
+# for r in range(N):
+#     sum_val = 0
+#     for c in range(N):
+#         if r < N//2 and c < N // 2:
+#             pass
+#         elif r < N//2 and c > N // 2:
+#             pass
+#         elif r > N//2 and c < N // 2:
+#             pass
+#         elif r > N//2 and c > N // 2:
+#             pass
+#         else:
+#             sum_val += arr[r][c]
+
+#             print(arr[r][c], end = ' ')
+#         print()
+        
+
