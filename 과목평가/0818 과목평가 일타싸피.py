@@ -1,20 +1,13 @@
-'''
+import math
 
-a = 122-64
->>> b = 250-64
->>> b/a
-3.206896551724138
->>> import math
->>> c = math.atan(b/a)
->>> c
-1.268523828214782
->>> math.degrees(c)
-72.68106156848526
->>> d = math.atan2(b, a)
->>> d
-1.268523828214782
->>> math.degrees(d)
-72.68106156848526
-'''
+start = (192.79, 102.77)
+end = (10, 120)
 
+a = abs(end[1] - start[1])
+b = abs(end[0] - start[0])
 
+r = math.sqrt(a**2 + b**2)
+
+radian = math.atan2(b, a)
+
+print(r, math.degrees(radian)+180)
