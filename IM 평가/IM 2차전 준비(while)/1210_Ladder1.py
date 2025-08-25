@@ -7,28 +7,27 @@ arr = [[0, 1, 0, 0, 0],
        [0, 1, 0, 0, 1],
        [0, 0, 0, 0, 2]]
 
-    
-dr = [0, 0, 1]
-dc = [-1, 1, 0]
-
+start_r, start_c = -1, -1
 for r in range(5):
     for c in range(5):
         if arr[r][c] == 2:
             start_r, start_c = r, c 
 
-            print(start_r, start_c)
+r, c = start_r, start_c
 
-            # while r != 0: # r이 0이 될때까지
-            #     for d in range(3):
-            #         nr, nc = start_r + dr[d], start_c + dc[d]
-            #         if 0 <= nr < 5 and 0 <= nc < 5:
-            #             if arr[nr][nc] == 1:
-            #                 cnt = arr[nr][nc]
-            # print(nc)
+while r != 0:
+    if c-1 >= 0 and arr[r][c-1] == 1:
+        while c-1 >= 0 and arr[r][c-1] == 1:
+            c -= 1
+    elif c+1 < 5 and arr[r][c+1] == 1:
+        while c-1 < 5 and arr[r][c+1] == 1:
+            c += 1
+    
+    r -= 1
 
-            # if r == 0:
-            #     print(c)
-            #     break
+print(c)
+
+
 
 
 
