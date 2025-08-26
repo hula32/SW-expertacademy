@@ -18,6 +18,8 @@ while i < 10:
     elif total > 100:
         if  abs(total - 100) < abs(new_total - 100):
             print(total)
+        elif abs(total - 100) == abs(new_total - 100):
+            print(total)
         else:
             print(new_total)
         break

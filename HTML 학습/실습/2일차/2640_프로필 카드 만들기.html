@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f7f7f7;
+      margin: 0;
+    }
+
+    .card {
+      width: 300px;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      overflow: hidden;
+      text-align: center;
+      padding-top: 20px;
+      position: relative;
+    }
+
+    .profile-img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background-color: #ccc; /* 이미지 없으면 회색 */
+      margin: 0 auto;
+      display: block;
+    }
+
+    .name {
+      background-color: #f4b183;
+      font-weight: bold;
+      font-size: 18px;
+      padding: 10px 0;
+      margin: -30px 20px 20px 20px; /* 이미지 아래 겹치게 */
+      border-radius: 5px;
+    }
+
+    .description {
+      font-size: 14px;
+      color: #555;
+      padding: 0 20px 20px 20px;
+      line-height: 1.5;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <img src="profile.jpg" alt="Profile Image" class="profile-img">
+    <div class="name">Name</div>
+    <div class="description">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci unde officiis ad nostrum. Laboriosam mollitia similique provident fuga tenetur saepe sit, amet eaque neque eius quaerat expedita ea illum veniam.
+    </div>
+  </div>
+</body>
+</html>
