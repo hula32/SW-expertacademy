@@ -7,6 +7,7 @@
 N, M, L = map(int, input().split()) # 5, 3, 2
 
 cnt = [0] * N
+
 cnt_total = 0
 i = 0
 result = True
