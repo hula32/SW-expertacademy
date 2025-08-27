@@ -1,2 +1,1 @@
-
-    for c in range(N):
+reak

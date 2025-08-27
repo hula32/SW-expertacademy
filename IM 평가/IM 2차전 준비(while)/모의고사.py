@@ -1,45 +1,57 @@
-# T = int(input())
+T = int(input())
 
-# for t in range(1, T+1):
-#     N = int(input())
-#     arr = [list(map(int, input().split())) for _ in range(N)]
+for t in range(1, T+1):
+    N = int(input())
+    arr = [list(map(int, input().split())) for _ in range(N)]
 
-N = 3
-arr = [[1, 2, 3], 
-       [4, 5, 6], 
-       [7, 8, 9]]
+    dr = [0, 0, -1, 1]
+    dc = [1, -1, 0, 0]
 
-dr = [0, 0, -1, 1]
-dc = [1, -1, 0, 0]
-# 제일 길게 공 굴린 값
+    def is_min(r, c):
+        for d in range(4):
+            nr, nc = r + dr[d], c + dc[d]
+            if 0 <= nr < N and 0 <= nc < N:
+                if arr[r][c] < arr[nr][nc]:
+                    return False # 바로 종료
+        return True
+
+    def find_min(r, c):
+
+        min_val = arr[r][c]
+
+        min_r, min_c = -1, -1
+
+        for d in range(4):
+            nr, nc = r + dr[d], c + dc[d]
+            if 0 <= nr < N and 0 <= nc < N:
+                if arr[nr][nc] < min_val:
+                    min_val = arr[nr][nc]
+                    min_r, min_c = nr, nc
+        
+        return min_r, min_c
+
+        
+    def simulation(r, c):
+        cnt = 1
+
+        while not is_min(r, c): # is_min : 작은 값이 있는 없는 경우 멈추고, 있으면 이동
+            nr, nc = find_min(r, c)
+            r, c = nr, nc
+            cnt += 1
+
+        return cnt
 
 
-# 기준점
-for r in range(N):
-    result = 0
-    for c in range(N):
-        start_r, start_c = r, c
 
-        cnt = 0
-      
-        while True:
-            min_v = sorted([])
-            cnt = 0
-            for d in range(4):
-                nr, nc = start_r + dr[d], start_c + dc[d]
-                if 0 <= nr < N and 0 <= nc < N and arr[start_r][start_c] > arr[nr][nc] :
-                    min_v.append((arr[nr][nc], nr, nc))
-            if min_v:
-                min_result = min_v[0][0]
-                start_r, start_c = min_v[0][1], min_v[0][2]
-                cnt += 1
-            if result < cnt:
-                result = cnt
-            break
+    max_cnt = 0
+    for r in range(N):
+        for c in range(N):
+            cnt = simulation(r, c) # simulation 함수: (r,c) 출발점으로 공굴리기를 진행한 후 칸의 수를 반환하는 함수
 
-print(result)
-            
+            if cnt > max_cnt:
+                max_cnt = cnt
 
+    print(max_cnt)
             
 
 

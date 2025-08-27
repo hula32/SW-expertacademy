@@ -5,9 +5,10 @@ for n in range(1, 11):
 
 i = 0
 total = 0
-new_total = 0
+new_total = 0 #prev
 
 while i < 10:
+    new_total = total # 바뀐부분
     total += result[i]
     i += 1
 
@@ -23,8 +24,8 @@ while i < 10:
         else:
             print(new_total)
         break
-    else:
-        new_total = total
+else:
+    print(total) # 바뀐부분
 
 
 

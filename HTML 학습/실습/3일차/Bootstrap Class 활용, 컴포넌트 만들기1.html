@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Navbar Centered</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    .custom-navbar {
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sign in 버튼 -->
+  <div class="d-grid gap-2 col-4 mx-auto my-4">
+    <button class="btn btn-success" type="button">Sign in</button>
+  </div>
+
+  <!-- 가운데 정렬된 Navbar -->
+  <div class="text-center">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark rounded px-3 custom-navbar">
+      <div class="d-flex align-items-center">
+        <!-- ✅ 이미지 왼쪽 -->
+        <a class="navbar-brand me-3" href="#">
+          <img src="ssafy_logo.png" alt="SSAFY Logo" width="30" height="24" />
+        </a>
+
+        <!-- ✅ 메뉴 오른쪽 수평 정렬 -->
+        <div class="collapse navbar-collapse show" id="navbarNav"> <!-- "show"는 항상 펼쳐지도록 -->
+          <ul class="navbar-nav flex-row gap-3">
+            <!-- 프로젝트 드롭다운 -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown">
+                프로젝트
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">프로젝트 A</a></li>
+                <li><a class="dropdown-item" href="#">프로젝트 B</a></li>
+                <li><a class="dropdown-item" href="#">새 프로젝트 생성</a></li>
+              </ul>
+            </li>
+
+            <!-- 그룹들 드롭다운 -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown">
+                그룹들
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">그룹 1</a></li>
+                <li><a class="dropdown-item" href="#">그룹 2</a></li>
+              </ul>
+            </li>
+
+            <!-- 일반 메뉴 -->
+            <li class="nav-item"><a class="nav-link text-white" href="#">활동</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="#">마일스톤</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="#">스니펫</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  <nav aria-label="Page navigation example">
+  <ul class="pagination justify-content-center">
+    <!-- Prev: 회색 글씨만, 배경은 흰색 -->
+    <li class="page-item disabled">
+      <a class="page-link text-secondary bg-white border" href="#" tabindex="-1" aria-disabled="true">Prev</a>
+    </li>
+
+    <!-- 현재 페이지 -->
+    <li class="page-item active">
+      <a class="page-link" href="#">1</a>
+    </li>
+
+    <!-- 나머지 페이지: 검정 글씨 -->
+    <li class="page-item">
+      <a class="page-link text-dark" href="#">2</a>
+    </li>
+    <li class="page-item">
+      <a class="page-link text-dark" href="#">3</a>
+    </li>
+    <li class="page-item">
+      <a class="page-link text-dark" href="#">4</a>
+    </li>
+
+    <!-- Next: 검정 글씨 -->
+    <li class="page-item">
+      <a class="page-link text-dark" href="#">Next</a>
+    </li>
+  </ul>
+</nav>
+
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

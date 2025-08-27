@@ -5,62 +5,71 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background-color: #f7f7f7;
-      margin: 0;
-    }
+    .card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+}
 
-    .card {
-      width: 300px;
-      background-color: #fff;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      overflow: hidden;
-      text-align: center;
-      padding-top: 20px;
-      position: relative;
-    }
+.card {
+  width: 300px; /* 카드의 너비는 자유롭게 조절할 수 있습니다. */
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden; /* 이미지가 부모의 범위를 벗어나지 않도록 합니다. */
+}
 
-    .profile-img {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      background-color: #ccc; /* 이미지 없으면 회색 */
-      margin: 0 auto;
-      display: block;
-    }
+.image-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 100%; /* 이미지의 가로세로 비율을 1:1로 유지합니다. */
+  background-color: #ccc; /* placeholder 이미지의 배경색 */
+}
 
-    .name {
-      background-color: #f4b183;
-      font-weight: bold;
-      font-size: 18px;
-      padding: 10px 0;
-      margin: -30px 20px 20px 20px; /* 이미지 아래 겹치게 */
-      border-radius: 5px;
-    }
+.image-wrapper img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 이미지가 부모의 크기에 맞게 채워지도록 합니다. */
+}
 
-    .description {
-      font-size: 14px;
-      color: #555;
-      padding: 0 20px 20px 20px;
-      line-height: 1.5;
-      text-align: left;
-    }
+.name-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(255, 160, 122, 0.8); /* 반투명 배경색 */
+  color: #333;
+  padding: 10px;
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: bold;
+  z-index: 1; /* 이미지를 덮도록 설정합니다. */
+}
+
+.card-content {
+  padding: 20px;
+  text-align: justify;
+}
   </style>
 </head>
 <body>
+  <div class="card-container">
   <div class="card">
-    <img src="profile.jpg" alt="Profile Image" class="profile-img">
-    <div class="name">Name</div>
-    <div class="description">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci unde officiis ad nostrum. Laboriosam mollitia similique provident fuga tenetur saepe sit, amet eaque neque eius quaerat expedita ea illum veniam.
+    <div class="image-wrapper">
+      <img src="profile.jpg" alt="Profile Image">
+      <div class="name-overlay">Name</div>
+    </div>
+    <div class="card-content">
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci unde officiis ad nostrum. Laboriosam mollitia similique provident fuga tenetur saepe sit, amet eaque neque eius quaerat expedita ea illum veniam.
+      </p>
     </div>
   </div>
+</div>
 </body>
 </html>
