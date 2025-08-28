@@ -1,3 +1,0 @@
-
-    print(cnt_num)
-    
