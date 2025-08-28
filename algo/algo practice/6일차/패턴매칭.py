@@ -1,11 +1,13 @@
-p = 'TTAT'
+
 t = 'TTTTAACCA'
+p = 'TTAT'
 
 def brute_force(p, t): # 찾을 패턴, 본문 문자열
     i = 0
     j = 0
-    M = len(p) # 4
+    
     N = len(t) # 9
+    M = len(p) # 4
     while j < M and i < N:
         if t[i] != p[j]: # 현재 문자가 다르면
             i = i - j # 시작 위치로 돌아감 / 시작 위치를 한 칸 옮긴 셈
