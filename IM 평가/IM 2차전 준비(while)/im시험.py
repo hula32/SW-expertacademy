@@ -8,9 +8,9 @@ N = 5
 P = [0] + [0, 1, 1, 2, 0]
 
 visited = [False] * (N+1)
+visited[1] = True
 
 idx = 1
-visited[idx] = True
 cnt = 0
 
 while idx < N:
@@ -22,9 +22,8 @@ while idx < N:
 
     if not visited[idx]:
         visited[idx] = True
-        idx = P[idx]
+        idx = visited[idx]
         cnt += 1
-
+    
 print(cnt)
-
 
