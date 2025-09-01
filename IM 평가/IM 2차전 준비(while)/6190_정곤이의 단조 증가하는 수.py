@@ -10,15 +10,15 @@ for t in range(1, T+1):
             total.append(number[i] * number[j])
     
     result = -1
-    for t in total:
-        s = str(t)
+    for to in total:
+        s = str(to)
         is_ok = True
         for r in range(len(s)-1):
             if s[r] > s[r+1]:
                 is_ok = False
                 break
         if is_ok:
-            result = max(result, t)
+            result = max(result, to)
 
     print(f'#{t} {result}')
 

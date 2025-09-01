@@ -15,3 +15,17 @@ top -= 1            # pop()
 print(stack[top+1])
 top -= 1            # pop()
 print(stack[top+1])
+
+
+top = -1
+stack = [0] * 10
+
+top += 1
+stack[top] = 1
+top += 1
+stack[top] = 1
+top += 1
+stack[top] = 1
+
+top -= 1
+print(stack[top+1])
