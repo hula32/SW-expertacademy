@@ -41,6 +41,39 @@ print(game(arr, number))
 
 
 
+def game(numbers, cnt_list):
+
+    i = 0 # 이동위치
+    cnt = 0 # 이동횟수
+
+    for j in range(M): # 0,1,2,3,4
+        i += cnt_list[j]
+        if i >= N:
+            return cnt + 1
+        i += numbers[i]
+        if i >= N:
+            return cnt + 1
+        cnt += 1
+
+    return cnt
+
+N, M = map(int, input().split())
+
+numbers = [0] * (N)
+for n in range(N):
+    num = int(input())
+    numbers[n] = num
+
+cnt_list = []
+for m in range(M):
+    cnt = int(input())
+    cnt_list.append(cnt)
+
+
+print(game(numbers, cnt_list))
+
+
+
 
 
 
