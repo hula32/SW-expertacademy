@@ -6,33 +6,38 @@ T = int(input())
 dr = [0, 1]
 dc = [1, 0]
 
-def recur(r, c, total, visited, arr):
-    global visited
+def recur(r, c, total):
+    global min_val
 
     if r == c == N-1:
-        return total
-    
-    for d in range(4):
+        if total < min_val:
+            min_val = total
+        return 
+        
+    for d in range(2):
         nr, nc = r + dr[d], c + dc[d]
-        if 0 <= nr < N and 0 <= nc < N:
-            if visited[nr][nc]:
-                continue
-
-            visited[nr][nc] = True
+        if 0 <= nr < N and 0 <= nc < N :
             recur(nr, nc, total + arr[nr][nc])
-            visited[nr][nc] = False
 
 for t in range(1, T+1):
     N = int(input())
-    arr = [list(map(int, input())) for _ in range(N)]
+    arr = [list(map(int, input().split())) for _ in range(N)]
 
-    visited = [[False] * N for _ in range(N)]
-    min_val = 99999
+    min_val = float('inf')
+    
+    recur(0, 0, arr[0][0])
 
-    r, c, total = recur(0, 0, 0, visited, arr)
+    print(f'#{t} {min_val}')
+    
 
-    if min_val > total:
-        min_val = total
+
+
+
+
+
+
+
+
 
 
 
