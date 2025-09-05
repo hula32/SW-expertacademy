@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ThRead - Popular Thread</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <style>
+      /* 폰트 정의 (format 보정) */
+      @font-face {
+        font-family: "SBAggro_L";
+        src: url("assets/fonts/SBAggroOTF_L.ttf") format("truetype");
+        font-display: swap;
+      }
+      @font-face {
+        font-family: "GmarketSansTTFMedium";
+        src: url("assets/fonts/GmarketSansTTFMedium.ttf") format("truetype");
+        font-display: swap;
+      }
+
+      /* 섹션 폭 80% & 중앙 정렬 */
+      .popular-thread {
+        width: 80%;
+        margin: 0 auto;
+      }
+      .section-title {
+        font-family: "GmarketSansTTFMedium";
+        font-weight: 700;
+        font-size: 1.5rem;
+        text-align: center;
+        margin-bottom: 0.25rem;
+      }
+      .section-subtitle {
+        text-align: center;
+        font-size: 0.95rem;
+        color: #6c757d;
+        margin-bottom: 1.25rem;
+      }
+
+      /* 카드 */
+      .thread-card.card {
+        height: 100%;
+        border: 0;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+      }
+      .thread-card .card-img-top {
+        height: 180px; /* 상단 이미지 고정 높이 */
+        object-fit: cover;
+      }
+      .thread-card .card-body {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+      }
+      .thread-card .card-title {
+        font-weight: 700;
+        font-size: 1.05rem;
+        margin-bottom: 0.25rem;
+      }
+      .thread-card .card-text {
+        color: #6c757d;
+        font-size: 0.95rem;
+      }
+      .thread-meta {
+        margin-top: auto; /* 항상 카드 하단으로 밀기 */
+        font-size: 0.85rem;
+      }
+      .thread-meta .book {
+        color: #fe4a51; /* 도서명 색상 */
+        font-weight: 700;
+      }
+
+      /* 그리드: 기본 2열, 데스크톱 3열, 412px 이하는 1열 */
+      /* 기본(xs) col-6 → 2열 */
+      /* lg 이상 col-lg-4 → 3열 */
+      /* 412px 이하에는 강제로 1열 */
+      @media (max-width: 412px) {
+        .thread-grid > [class*="col-"] {
+          flex: 0 0 100%;
+          max-width: 100%;
+        }
+        .thread-card .card-img-top {
+          height: 220px; /* 작은 화면에서 이미지 조금 더 큼 */
+        }
+      }
+
+      /* Pagination 커스텀 (부트스트랩보다 높은 명시도) */
+      .thread nav .pagination .page-item .page-link {
+        border: none !important;
+        background: transparent !important;
+        color: #6c757d;
+        padding: 0.4rem 0.65rem;
+        margin: 0 0.1rem;
+      }
+      .thread nav .pagination .page-item.active .page-link {
+        color: #fe4a51 !important; /* 활성 페이지 문자색 */
+        font-weight: 700;
+      }
+      .thread nav .pagination .page-item .page-link:focus {
+        box-shadow: none !important;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="thread py-5 bg-light">
+      <div class="popular-thread">
+        <h3 class="section-title">지금 이 쓰레드</h3>
+        <div class="section-subtitle">
+          최근 사람들이 많이 공감한 게시글입니다
+        </div>
+
+        <div class="container-fluid px-0">
+          <div class="row g-3 thread-grid">
+            <!-- 카드 1 -->
+            <div class="col-6 col-lg-4">
+              <div class="card thread-card h-100">
+                <img
+                  src="assets/threads/img1.jpg"
+                  class="card-img-top"
+                  alt="휴식과 글쓰기"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">
+                    혼잡한 하루 속에서도 멈추지 않는 용기
+                  </h5>
+                  <p class="card-text">
+                    관계가 비틀려 보이기 시작한 날의 기록. 우리의 작은 위로는 늘
+                    새벽 공기에 섞여 흩어졌다. 그러나 오늘은 달랐다.
+                  </p>
+                  <div class="thread-meta">
+                    김소민 | <span class="book">빨간 우체통의 언어</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 카드 2 -->
+            <div class="col-6 col-lg-4">
+              <div class="card thread-card h-100">
+                <img
+                  src="assets/threads/img2.jpg"
+                  class="card-img-top"
+                  alt="만년필"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">짧은 편지에 담아낸 긴 하루의 조각</h5>
+                  <p class="card-text">
+                    투박한 만년필 끝에서 흘러나온 문장들. 말하지 못한 안부가
+                    잉크 얼룩처럼 번졌다.
+                  </p>
+                  <div class="thread-meta">
+                    이도현 | <span class="book">우리가 남긴 작은 메모</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 카드 3 -->
+            <div class="col-6 col-lg-4">
+              <div class="card thread-card h-100">
+                <img
+                  src="assets/threads/img3.jpg"
+                  class="card-img-top"
+                  alt="AI와 창작"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">인공지능과 창작의 경계에서</h5>
+                  <p class="card-text">
+                    도구가 바뀌면 언어도 달라진다. ‘기계의 시선’이 만든 우연과
+                    인간의 해석 사이에서 새로운 이야기가 태어난다.
+                  </p>
+                  <div class="thread-meta">
+                    박유진 | <span class="book">Making with AI</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 카드 4 -->
+            <div class="col-6 col-lg-4">
+              <div class="card thread-card h-100">
+                <img
+                  src="assets/threads/img4.jpg"
+                  class="card-img-top"
+                  alt="종이 비행기"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">사소함이 지닌 놀라운 힘</h5>
+                  <p class="card-text">
+                    작은 행동 하나가, 견고한 태도를 만든다. 덜어내는 연습이 곧
+                    더 멀리 나는 연습이었다.
+                  </p>
+                  <div class="thread-meta">
+                    이현 | <span class="book">작은 시작, 큰 기꺼움</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 카드 5 -->
+            <div class="col-6 col-lg-4">
+              <div class="card thread-card h-100">
+                <img
+                  src="assets/threads/img5.jpg"
+                  class="card-img-top"
+                  alt="라벤더"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">상실의 어둠을 넘어 보이는 것</h5>
+                  <p class="card-text">
+                    ‘괜찮지 않음’을 인정하는 순간, 비로소 길이 보였다. 향은
+                    바람을 타고 돌아왔다.
+                  </p>
+                  <div class="thread-meta">
+                    윤라라 | <span class="book">다시 보라색을 보았네</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 카드 6 -->
+            <div class="col-6 col-lg-4">
+              <div class="card thread-card h-100">
+                <img
+                  src="assets/threads/img6.jpg"
+                  class="card-img-top"
+                  alt="원격 업무"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">어디서나 쓸 수 있는 마음의 자리</h5>
+                  <p class="card-text">
+                    낯선 책상 앞에서도 익숙해지는 루틴. 집중은 공간이 아니라
+                    습관에 깃든다는 걸 배웠다.
+                  </p>
+                  <div class="thread-meta">
+                    민서진 | <span class="book">일과 일상 사이</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pagination -->
+          <nav aria-label="Popular thread pages">
+            <ul class="pagination justify-content-center mt-3">
+              <li class="page-item"><a class="page-link" href="#">1</a></li>
+              <li class="page-item active" aria-current="page">
+                <a class="page-link" href="#">2</a>
+              </li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </section>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ThRead - Bestseller</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+
+    <style>
+      /* 폰트 정의 */
+      @font-face {
+        font-family: "SBAggro_L";
+        src: url("assets/fonts/SBAggroOTF_L.ttf") format("ttf");
+      }
+      @font-face {
+        font-family: "GmarketSansTTFMedium";
+        src: url("assets/fonts/GmarketSansTTFMedium.ttf") format("ttf");
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        color: #333;
+        font-family: "Helvetica Neue", Arial, sans-serif;
+      }
+
+      /* 베스트셀러 섹션 스타일 */
+      .bestseller .section-title {
+        font-family: "GmarketSansTTFMedium", sans-serif;
+        font-size: 2rem;
+        font-weight: bold;
+      }
+
+      /* 이미지 잘림 방지 및 비율 유지 */
+      .card img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
+
+      /* 책 제목의 말줄임표 처리 */
+      .card-text {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-family: "GmarketSansTTFMedium", sans-serif;
+        font-size: 0.9rem;
+      }
+
+      .card img {
+        width: 150px; /* 이미지 너비 고정 */
+        height: 220px; /* 이미지 높이 고정 */
+      }
+
+      .container {
+        border: 2px solid #333;
+        padding: 30px;
+        border-radius: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 베스트셀러 섹션 -->
+    <section class="bestseller py-5">
+      <div class="container">
+        <div class="row align-items-center mb-4">
+          <div class="col-md-2">
+            <h3 class="section-title">베스트셀러</h3>
+          </div>
+          <!-- </div> -->
+          <!-- 우측 Carousel -->
+          <div class="col-md-9">
+            <div
+              id="bestSellerCarousel"
+              class="carousel slide"
+              data-bs-ride="carousel"
+            >
+              <div class="carousel-inner">
+                <!-- 
+          [과제 안내]
+          아래 영역에 Bootstrap Carousel 컴포넌트를 이용해
+          - 총 12권의 도서를 4권씩 나눈 슬라이드를 구현하고,
+          - 각 도서는 도서 커버 이미지와 제목으로 구성하며,
+          - 우측에만 표시되는 Next 컨트롤 버튼을 포함하도록 작성하세요.
+        -->
+                <!-- 코드는 여기에 작성하시오 -->
+                <div class="carousel-item active">
+                  <div class="d-flex justify-content-center gap-3">
+                    <div class="card" style="width: 10rem">
+                      <img
+                        src="/도서/skeleton/assets/bestsellers/img1.jpeg"
+                        class="card-img-top"
+                        alt="Book 1"
+                      />
+                      <div class="card-body p-2 text-center">
+                        <p class="card-text">소년이 온다</p>
+                      </div>
+                    </div>
+                    <div class="card" style="width: 10rem">
+                      <img
+                        src="/도서/skeleton/assets/bestsellers/img2.jpeg"
+                        class="card-img-top"
+                        alt="Book 2"
+                      />
+                      <div class="card-body p-2 text-center">
+                        <p class="card-text">채식주의자</p>
+                      </div>
+                    </div>
+                    <div class="card" style="width: 10rem">
+                      <img
+                        src="/도서/skeleton/assets/bestsellers/img3.jpeg"
+                        class="card-img-top"
+                        alt="Book 3"
+                      />
+                      <div class="card-body p-2 text-center">
+                        <p class="card-text">대온실 수리 보고서</p>
+                      </div>
+                    </div>
+                    <div class="card" style="width: 10rem">
+                      <img
+                        src="/도서/skeleton/assets/bestsellers/img4.jpeg"
+                        class="card-img-top"
+                        alt="Book 4"
+                      />
+                      <div class="card-body p-2 text-center">
+                        <p class="card-text">급류</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="carousel-item">
+                  <div class="d-flex justify-content-center gap-4">
+                    <div class="card" style="width: 10rem">
+                      <img
+                        src="/도서/skeleton/assets/bestsellers/img5.jpeg"
+                        class="card-img-top"
+                        alt="Book 5"
+                      />
+                      <div class="card-body p-2 text-center">
+                        <p class="card-text">시간의 계곡</p>
+                      </div>
+                    </div>
+                    <div class="card" style="width: 10rem">
+                      <img
+                        src="/도서/skeleton/assets/bestsellers/img6.jpeg"
+                        class="card-img-top"
+                        alt="Book 6"
+                      />
+                      <div class="card-body p-2 text-center">
+                        <p class="card-text">인간 계곡</p>
+                      </div>
+                    </div>
+                    <div class="card" style="width: 10rem">
+                      <img
+                        src="/도서/skeleton/assets/bestsellers/img7.jpeg"
+                        class="card-img-top"
+                        alt="Book 7"
+                      />
+                      <div class="card-body p-2 text-center">
+                        <p class="card-text">노르웨이의 숲</p>
+                      </div>
+                    </div>
+                    <div class="card" style="width: 10rem">
+                      <img
+                        src="/도서/skeleton/assets/bestsellers/img8.jpeg"
+                        class="card-img-top"
+                        alt="Book 8"
+                      />
+                      <div class="card-body p-2 text-center">
+                        <p class="card-text">정원에 대하여</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="carousel-item">
+                  <div class="d-flex justify-content-center gap-2">
+                    <div class="card" style="width: 10rem">
+                      <img
+                        src="/도서/skeleton/assets/bestsellers/img9.jpeg"
+                        class="card-img-top"
+                        alt="Book 9"
+                      />
+                      <div class="card-body p-2 text-center">
+                        <p class="card-text">네 칼이 센가, 내 칼이 센가.</p>
+                      </div>
+                    </div>
+                    <div class="card" style="width: 10rem">
+                      <img
+                        src="/도서/skeleton/assets/bestsellers/img10.jpeg"
+                        class="card-img-top"
+                        alt="Book 10"
+                      />
+                      <div class="card-body p-2 text-center">
+                        <p class="card-text">새벽의 사원</p>
+                      </div>
+                    </div>
+                    <div class="card" style="width: 10rem">
+                      <img
+                        src="/도서/skeleton/assets/bestsellers/img11.jpeg"
+                        class="card-img-top"
+                        alt="Book 11"
+                      />
+                      <div class="card-body p-2 text-center">
+                        <p class="card-text">위싱머신</p>
+                      </div>
+                    </div>
+                    <div class="card" style="width: 10rem">
+                      <img
+                        src="/도서/skeleton/assets/bestsellers/img12.jpeg"
+                        class="card-img-top"
+                        alt="Book 12"
+                      />
+                      <div class="card-body p-2 text-center">
+                        <p class="card-text">모순</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Carousel Controls -->
+              <button
+                class="carousel-control-next"
+                type="button"
+                data-bs-target="#bestSellerCarousel"
+                data-bs-slide="next"
+              >
+                <span class="carousel-control-next-icon"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Bootstrap JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
