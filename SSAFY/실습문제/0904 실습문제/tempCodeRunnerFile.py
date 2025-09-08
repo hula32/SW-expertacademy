@@ -1,1 +1,0 @@
- first, second = path[:3], path[3:]

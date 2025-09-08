@@ -1,0 +1,1 @@
+  recur(cnt + 1, subset + [name[cnt]])
