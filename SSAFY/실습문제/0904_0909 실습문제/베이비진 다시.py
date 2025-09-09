@@ -1,52 +1,36 @@
-# 0 ~ 9 숫자 카드 4세트를 섞은 후 6개의 카드를 골랐을 때,
-# 연속인 숫자가 3개 이상이면 run
-# 같은 숫자가 3개 이상이면 triplet
-
-# player 1, player 2 교대로 한 장 씩 카드를 가져감
-# 6장을 채우기 전이라도 먼저 run 또는 triplet 되는 사람이 승자
-
-# 두 사람이 가져가게 되는 순서대로 12장의 카드에 대한 정보가 주어졌을 때 승자를 알아내는 프로그램 작성
-# 무승부인 경우 '0' 출력
-
-
 T = int(input())
 
-# run 검사 함수
 def is_run(cards):
     cards = sorted(cards)
-    return cards[0] + 1 == cards[1] and cards[1] + 1 == cards[2]
+    return cards[0] + 1 == cards[1] and cards[1] + 1 == cards[2] 
 
-# triplet 검사 함수
 def is_triplet(cards):
     return cards[0] == cards[1] == cards[2]
 
-# run or triplet 확인 여부
 def recur(cards, cnt, start, path):
     global run_flag, triplet_flag
 
     if cnt == 3:
         if is_run(path) or is_triplet(path):
             run_flag, triplet_flag = True, True
-        return
-    
-    # 조합 생성
+            return 
+        
     for i in range(start, len(cards)):
         path.append(cards[i])
         recur(cards, cnt + 1, i + 1, path)
-        path.pop()
+        path.pop()     
 
-# 입력 받기
 for t in range(1, T+1):
-    arr = list(map(int, input().split()))
+    cards = list(map(int, input().split()))
 
     p1 = []
     p2 = []
 
     winner = 0
 
-    for i in range(12):
-        if i % 2 == 0: # player1
-            p1.append(arr[i])
+    for idx in range(12):
+        if idx % 2 == 0:
+            p1.append(cards[idx])
 
             if len(p1) >= 3:
                 run_flag, triplet_flag = False, False
@@ -56,7 +40,7 @@ for t in range(1, T+1):
                     break
 
         else:
-            p2.append(arr[i])
+            p2.append(cards[idx])
 
             if len(p2) >= 3:
                 run_flag, triplet_flag = False, False
