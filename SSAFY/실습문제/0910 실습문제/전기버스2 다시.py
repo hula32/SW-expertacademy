@@ -1,19 +1,16 @@
 T = int(input())
 
 def recur(idx, battery, cnt):
-    # idx : 현재 정류장 번호
-    # battery : 현재 배터리 용량
-    # cnt : 지금까지 교체 횟수
     global min_val
 
     battery -= 1
 
-    if cnt >= min_val:
+    if min_val <= cnt:
         return
     
     if battery < 0:
         return
-
+    
     if idx == N and battery >= 0:
         min_val = min(min_val, cnt)
         return
@@ -23,10 +20,9 @@ def recur(idx, battery, cnt):
 
 for t in range(1, T+1):
     N, *M = map(int, input().split())
+    M = [0] + M
 
-    M = [0] + M # [0, 2, 3, 1, 1]
     min_val = float("inf")
-
-    recur(2, M[1], 0) # 정류장 번호, 현재 배터리 용량, 교체 횟수
+    recur(2, M[1], 0)
 
     print(f'#{t} {min_val}')

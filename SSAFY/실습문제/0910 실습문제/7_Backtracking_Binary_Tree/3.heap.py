@@ -3,10 +3,10 @@ import heapq
 arr = [20, 15, 19, 4, 13, 11]
 
 # 1. 기본 리스트를 heap 으로 만들기
-# heapq.heapify(arr)  # 최소힙으로 바뀐다.
+heapq.heapify(arr)  # 최소힙으로 바뀐다.
 # 디버깅 시에 이진 트리로 그림을 그려야 한다!
 # -> 딱 봤을때는 정렬이 안된 것 처럼 보인다.
-# print(arr)
+print(arr)
 
 # 2. 하나 씩 데이터를 추가
 min_heap = []
@@ -18,6 +18,7 @@ print(min_heap)
 max_heap = []
 for num in arr:
     heapq.heappush(max_heap, -num)
+print(max_heap)
 
 while max_heap:
     pop_num = heapq.heappop(max_heap)
@@ -30,7 +31,7 @@ while max_heap:
 arr = ['apple', 'banana', 'kiwi', 'abcd', 'abca', 'lemon', 'peach', 'grape', 'pear']
 # sort 를 쓰면 아래와 같다.
 # 즉, 우선순위가 2가지
-# arr.sort(key=lambda x: (len(x), x))
+arr.sort(key=lambda x: (len(x), x))
 dictionary = []
 
 # 단어를 삽입 (길이, 단어) 형태로 삽입
