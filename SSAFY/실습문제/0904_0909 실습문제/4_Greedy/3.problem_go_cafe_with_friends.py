@@ -16,7 +16,7 @@ def get_count(tar):
     # for i in range(n):
     #     if (tar >> i) & 0x1:
     #         cnt += 1
-    # return cnt
+    return cnt
 
 # 모든 부분 집합 중 원소의 수가 2개 이상인 집합의 수
 answer = 0

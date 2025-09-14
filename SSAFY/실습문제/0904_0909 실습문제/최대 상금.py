@@ -1,33 +1,22 @@
-T = int(input())
+def recur(cnt, path):
+    global max_num
 
-for t in range(1, T+1):
-    num, ch = map(int, input().split())
-
-    path = []
-    number = [] # ['1', '2', '3']
-    change = 0
-
-    for n in str(num):
-        number.append(n)
-
-    visited = [False] * len(number)
-
-    def recur(cnt):
-        global change
-
-        if cnt == len(number):
-            change += 1
-            print(*path)
-            return
-        
-        for idx in range(len(number)):
-            if visited[idx]:
-                continue
+    if cnt == k:
+        if len(path) == len(num):
+            max_num = max(max_num, path)
+        return
     
-            visited[idx] = True
-            path.append(int(number[idx]))
-            recur(cnt + 1)
-            path.pop()
-            visited[idx] = False
+    for idx in range(len(num)):
+        recur(cnt+1, path + num[idx])
 
-    recur(0)
+
+number, K = input().split()
+
+k = int(K)
+max_num = '0'
+num = []
+for n in number:
+    num.append(n)
+
+recur(0, '')
+print(max_num)
