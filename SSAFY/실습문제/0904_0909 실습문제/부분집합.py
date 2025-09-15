@@ -74,6 +74,7 @@
 
 name = ['Min', 'Co', 'Tim']
 
+
 def recur(cnt, subset):
     if cnt == 3:
         print(*subset)
