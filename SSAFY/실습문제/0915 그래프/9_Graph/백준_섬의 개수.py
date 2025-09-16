@@ -1,17 +1,104 @@
 
+# dr = [-1, 1, 0, 0] + [-1, 1, -1, 1]
+# dc = [0, 0, -1, 1] + [-1, -1, 1, 1]
+
+
+# def dfs(sr, se):
+
+#     for d in range(8):
+#         nr = sr + dr[d]
+#         nc = se + dc[d]
+#         if 0 <= nr < H and 0 <= nc < W:
+#             if not visited[nr][nc] and arr[nr][nc] == 1:
+#                 visited[nr][nc] = True
+#                 dfs(nr, nc)
+
+# while True:
+
+#     W, H = map(int, input().split())
+
+#     if W == 0 and H == 0:
+#         break
+    
+#     arr = [list(map(int, input().split())) for _ in range(H)]
+
+#     visited = [[False] * W for _ in range(H)]
+#     cnt = 0
+
+#     for r in range(H):
+#         for c in range(W):
+#             if not visited[r][c] and arr[r][c] == 1:
+#                 visited[r][c] = True
+#                 dfs(r, c)
+#                 cnt += 1
+
+#     print(cnt)
+
+
+# ----------------------------------------------------------
+    
+    
+# from collections import deque
+
+# dr = [-1, 1, 0, 0] + [-1, 1, -1, 1]
+# dc = [0, 0, -1, 1] + [-1, -1, 1, 1]
+
+# def bfs(sr, sc):
+#     q = deque([(sr, sc)])
+
+#     while q:
+#         r, c = q.popleft()
+
+#         for d in range(8):
+#             nr = r + dr[d]
+#             nc = c + dc[d]
+#             if 0 <= nr < H and 0 <= nc < W:
+#                 if not visited[nr][nc] and arr[nr][nc]:
+#                     visited[nr][nc] = True
+#                     q.append((nr, nc))
+
+
+
+# while True:
+#     W, H = map(int, input().split())
+
+#     if W == 0 and H == 0:
+#         break
+
+#     arr = [list(map(int, input().split())) for _ in range(H)]
+#     visited = [[False] * W for _ in range(H)]
+#     cnt = 0
+
+#     for r in range(H):
+#         for c in range(W):
+#             if not visited[r][c] and arr[r][c] == 1:
+#                 bfs(r, c)
+#                 cnt += 1
+
+#     print(cnt)
+
+
+# ---------------------------------------------
+
 dr = [-1, 1, 0, 0] + [-1, 1, -1, 1]
 dc = [0, 0, -1, 1] + [-1, -1, 1, 1]
 
 
-def dfs(sr, se):
+def dfs(sr, sc):
 
-    for d in range(8):
-        nr = sr + dr[d]
-        nc = se + dc[d]
-        if 0 <= nr < H and 0 <= nc < W:
-            if not visited[nr][nc] and arr[nr][nc] == 1:
-                visited[nr][nc] = True
-                dfs(nr, nc)
+    stack = [(sr, sc)]
+
+    while stack:
+        r, c = stack.pop()
+
+        for d in range(8):
+            nr = r + dr[d]
+            nc = c + dc[d]
+            if 0 <= nr < H and 0 <= nc < W:
+                if not visited[nr][nc] and arr[nr][nc] == 1:
+                    visited[nr][nc] = True
+                    stack.append((nr, nc))
+                    
 
 while True:
 
@@ -33,8 +120,3 @@ while True:
                 cnt += 1
 
     print(cnt)
-
-
-# ----------------------------------------------------------
-    
-    
