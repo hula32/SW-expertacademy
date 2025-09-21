@@ -40,7 +40,7 @@ for t in range(1, T+1):
             cnt += 1
             result += w
 
-            if cnt == V:
+            if cnt == V - 1:
                 break
     
     print(f'#{t} {result}')

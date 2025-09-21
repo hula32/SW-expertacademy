@@ -10,44 +10,68 @@ dc = [0, 1, 0, -1]
 
 T = int(input())
 
-def bfs(sr, sc, er, ec, k):
-    q = deque([(sr, sc)])
+def bfs(N, K, arr, start, end):
+    sr, sc = start
+    er, ec = end
+
+    visited = {}
+
+    q = deque()
+
+    q.append((sr, sc, 0, 0, 0))
+    visited[(sr, sc, 0, 0)] = True
+    
 
     while q:
-        r, c = q.popleft()
-        d = 0
-        cnt = 0
-        cut = k
+        r, c, d, cut, ops = q.popleft()
 
-        if (r, c) == (er, ec):
-            return cnt
+        if (r, c) == (er, ec) :
+            return ops
         
-        nr = r + dr[d]
-        nc = c + dc[d]
+        nd = (d + 3) % 4
+        if (r, c, nd, cut) not in visited:
+            visited[(r, c, nd, cut)] = True
+            q.append((r, c, nd, cut, ops + 1))
+
+        nd = (d + 1) % 4
+        if (r, c, nd, cut) not in visited:
+            visited[(r, c, nd, cut)] = True
+            q.append((r, c, nd, cut, ops + 1))
+
+        
+        nr, nc = r + dr[d], c + dc[d]
         if 0 <= nr < N and 0 <= nc < N:
-            if arr[nr][nc] == 'T' and cut > 0:
-                cut -= 1
-                arr[nr][nc] = 'G'
-                q.append((nr, nc))
-            
-                
-        
+            cell = arr[nr][nc]
+
+            if cell in ('G', 'Y'):
+                if (nr, nc, nd, cut) not in visited:
+                    visited[(nr, nc, d, cut)] = True
+                    q.append((nr, nc, d, cut, ops + 1))
+
+            elif cell == 'T' and cut < K:
+                if (nr, nc, nd, cut + 1) not in visited:
+                    visited[(nr, nc, d, cut + 1)] = True
+                    q.append((nr, nc, d, cut + 1, ops + 1))
+
+    return -1
 
 
 for t in range(1, T+1):
     N, K = map(int, input().split()) # 필드크기, 나무 벨 수 있는 횟수
     arr = [list(input().strip()) for _ in range(N)]
 
-    start_r, start_c = end_r, end_c = -1, -1
+    start = end = None
     for r in range(N):
         for c in range(N):
             if arr[r][c] == 'X':
-                start_r, start_c = r, c
+                start = (r, c)
+                arr[r][c] = 'G'
             if arr[r][c] == 'Y':
-                end_r, end_c = r, c
+                end = (r, c)
 
-    sr, sc = start_r, start_c
-    er, ec = end_r, end_c
+    if start is None or end is None:
+        print(f'#{t} -1')
 
-    min_val = float('inf')
-    ans = bfs(sr, sc, er, ec, K)
+    ans = bfs(N, K, arr, start, end)
+
+    print(f'#{t} {ans}')
