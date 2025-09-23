@@ -7,7 +7,7 @@ from django.shortcuts import render
 # articles/ 요청이 들어오면 호출되는 함수
 def index(request):
     context = {
-        'name' : 'Jane',
+        'name': 'Jane',
     }
     return render(request, 'articles/index.html', context)
 
@@ -21,9 +21,9 @@ def dinner(request):
     ]
     picked = random.choice(foods)
     context = {
-        'foods' : foods,
-        'picked' : picked,
-    } 
+        'foods': foods,
+        'picked': picked,        
+    }
     return render(request, 'articles/dinner.html', context)
 
 
@@ -35,21 +35,28 @@ def throw(request):
     return render(request, 'articles/throw.html')
 
 
+# 사용자 입력 데이터를 추출해서 응답 페이지에 보여주기
 def catch(request):
-    print(request.GET)
-    print(request.GET.get('message'))
+    # 사용자 입력데이터는 대체 어디에 있을까? -> request 객체
+    print(request.GET)  # <QueryDict: {'message': ['ssafy']}>
+    print(request.GET.get('message'))  # ssafy
     context = {
-        'message' : request.GET.get('message'),
+        'message': request.GET.get('message'),
     }
     return render(request, 'articles/catch.html', context)
 
 
+
+
 def detail(request, num):
     context = {
-        'num' : num,
+        'num': num,
     }
     return render(request, 'articles/detail.html', context)
 
 
-def greeting(request):
-    pass
+def greeting(request, name):
+    context = {
+        'name': name,
+    }
+    return render(request, 'articles/greeting.html', context)

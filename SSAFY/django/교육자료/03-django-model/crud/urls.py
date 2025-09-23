@@ -1,5 +1,5 @@
 """
-URL configuration for firstpjt project.
+URL configuration for crud project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.2/topics/http/urls/
@@ -14,15 +14,9 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-
 from django.contrib import admin
-from django.urls import path, include
-from articles import views
+from django.urls import path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # 클라이언트 요청 주가 /articles/까지 일치 한다면,
-    # 나머지 주소는 articles 앱의 urls.py로 넘긴다.
-    path('articles/', include('articles.urls')),
-    path('pages/', include('pages.urls')),
 ]
